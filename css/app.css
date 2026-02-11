@@ -89,10 +89,13 @@ h1:focus {
 
 /* home page */
 .pageStyle {
-    background: url(../images/ButterfliesBG.png);
+    background-image: url(../images/ButterfliesBG.png);
     background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
+    background-position: center center;
+    background-size: cover; /* preserve aspect ratio and fill */
+    min-height: 100vh; /* ensure it covers full viewport height */
+    background-attachment: fixed; /* optional: keeps image fixed during scroll (may be ignored on some mobile browsers) */
+    background-color: var(--cf-theme-100); /* fallback color while image loads */
 }
 
 .title {
