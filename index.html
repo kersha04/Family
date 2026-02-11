@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -78,59 +77,5 @@
         </div>
 	</footer>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <script>
-        window.setTheme = (theme) => {
-            document.querySelector('[data-cf-theme]').setAttribute('data-cf-theme', theme)
-        }
-
-        // Copy current window.href to the clipboard (uses Clipboard API with a safe fallback)
-        function copyShareLink(evt) {
-            if (evt && typeof evt.preventDefault === 'function') evt.preventDefault();
-            const url = window.location.href;
-
-            if (navigator.clipboard && navigator.clipboard.writeText) {
-                navigator.clipboard.writeText(url).catch(() => copyFallback(url));
-            } else {
-                copyFallback(url);
-            }
-        }
-
-        function copyFallback(text) {
-            try {
-                const ta = document.createElement('textarea');
-                ta.value = text;
-                ta.setAttribute('readonly', '');
-                ta.style.position = 'absolute';
-                ta.style.left = '-9999px';
-                document.body.appendChild(ta);
-                ta.select();
-                document.execCommand('copy');
-                document.body.removeChild(ta);
-            } catch (e) {
-                // noop — best-effort only
-                console.warn('Copy fallback failed', e);
-            }
-        }
-    </script>
-    <script src="_framework/blazor.webassembly#[.{fingerprint}].js"></script>
 </body>
-
 </html>
