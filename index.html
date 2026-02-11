@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thank you</title>
+    <base href="/" />
+    <link rel="preload" id="webassembly" />
+    <!--bootstrap css-->
+    <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+    <!--bootstrap icons-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+    <!--google fonts bebas for headlines Montserrat 300/400 for body-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playwrite+NZ+Basic&family=Montserrat:ital,wght@0,100..900;" rel="stylesheet">
+
+    <!--custom css, load our custom css last-->
+    <link rel="stylesheet" href="./css/themes.css" />
+    <link rel="stylesheet" href="./css/app.css" />
+    <link href="Family.styles.css" rel="stylesheet" />
+
+    <!--favicon-->
+    <link rel="icon" type="image/png" href="images/heartBreak.png" />
+    <script type="importmap"></script>
+</head>
+
+<body data-cf-theme="code-magic" class="pageStyle">
+<div class="d-flex flex-column h-100">
+	<!-- top nav bar -->
+	<header class="flex-shrink-0">
+		<div class="navbar navbar-expand-lg navStyle" data-bs-theme="dark"></div>
+	</header>
+	<main class="flex-grow-1 container-xxl">
+	<div class="d-flex h-100 justify-content-center">
+	    <div class="row row-cols-1 row-cols-xl-2 container-xxl mt-4">
+		    <div class="col d-flex flex-column justify-content-xl-center order-last order-xl-first">
+		    	<div class="title">With a heavy heart...</div>
+		    	<div class="subTitle">
+		    		<p class="mt-4 ">In loving memory of Joline Cooper and her two children Celeste and Atreus Kershaw.</p>
+		    		<p>There are no words for the void that now exists.</p>
+		    	</div>
+		    	<div>
+		    		<p class="mt-2">If you would like to contribute to the surviving family, Ashton (husband) and Zelda (daughter), please use the QR Codes below. All funds will go directly to Ashton.</p>
+		    		<p class="mt-2">In leiu of any financial contributions, your thoughts in this difficult time are just as appreciated.</p>
+		    		<p class="mt-2">Thank you, and we're sending love right back</p>
+		    	</div>
+		    </div>
+		    <div class="col d-flex flex-column justify-content-center">
+		    	<img src="/images/Family.png" class="img-fluid mainPhoto" />
+		    </div>
+		    <div class="container-fluid px-0 order-last mt-5 mb-4 w-75">
+		    	<div id="qrcodes" class="row justify-content-center">
+		    		<div class="col-12 col-md-4 d-flex justify-content-center qrCode">
+		    			<a href="http://paypal.me/abskershaw" class="d-flex justify-content-center"><img src="/images/paypalqr.png" class="img-fluid mb-2" alt="paypal qr" /></a>
+		    		</div>
+		    		<div class="col-12 col-md-4 d-flex justify-content-center qrCode">
+		    			<a href="https://cash.app/$blackdragon2435" class="d-flex justify-content-center"><img src="/images/cashappqrlight.png" class="img-fluid mb-2" alt="cash app qr" /></a>
+		    		</div>
+		    		<div class="col-12 col-md-4 d-flex justify-content-center qrCode">
+		    			<img src="/images/zelleqr.png" class="img-fluid mb-2" alt="zelle qr" />
+		    		</div>
+		    	</div>
+		    </div>
+	    </div>
+    </div>
+	</main>
+	<!-- footer -->
+	<footer class="flex-shrink-0">
+		<div class="p-3 footerStyle text-light">
+	        <div class="container-xxl">
+		    	<div class="d-flex flex-column align-items-end justify-content-end text-md-end">
+		    		<p>Questions or concerns? - <a href="mailto:meddlingmelodies@gmail.com">Email</a></p>
+		    	</div>
+	        </div>
+        </div>
+	</footer>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+        window.setTheme = (theme) => {
+            document.querySelector('[data-cf-theme]').setAttribute('data-cf-theme', theme)
+        }
+
+        // Copy current window.href to the clipboard (uses Clipboard API with a safe fallback)
+        function copyShareLink(evt) {
+            if (evt && typeof evt.preventDefault === 'function') evt.preventDefault();
+            const url = window.location.href;
+
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(url).catch(() => copyFallback(url));
+            } else {
+                copyFallback(url);
+            }
+        }
+
+        function copyFallback(text) {
+            try {
+                const ta = document.createElement('textarea');
+                ta.value = text;
+                ta.setAttribute('readonly', '');
+                ta.style.position = 'absolute';
+                ta.style.left = '-9999px';
+                document.body.appendChild(ta);
+                ta.select();
+                document.execCommand('copy');
+                document.body.removeChild(ta);
+            } catch (e) {
+                // noop — best-effort only
+                console.warn('Copy fallback failed', e);
+            }
+        }
+    </script>
+    <script src="_framework/blazor.webassembly#[.{fingerprint}].js"></script>
+</body>
+
+</html>
